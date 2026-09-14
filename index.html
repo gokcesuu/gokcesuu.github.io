@@ -1,0 +1,489 @@
+<title>Gökçe Su Aksoy</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#eef5f4;
+  --surface:#ffffff;
+  --surface-2:#e2edec;
+  --ink:#10262c;
+  --ink-soft:#4c6167;
+  --line:#c9dbd8;
+  --accent:#c97a34;
+  --accent-soft:#f2ddc2;
+  --teal:#1d6068;
+  --teal-soft:#d7e9e6;
+  --shadow:0 24px 48px -32px rgba(16,38,44,0.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1a1f;
+    --surface:#112329;
+    --surface-2:#152b31;
+    --ink:#e9f2f0;
+    --ink-soft:#a4bcbf;
+    --line:#25454b;
+    --accent:#e3a159;
+    --accent-soft:#3a2c1c;
+    --teal:#59b3ae;
+    --teal-soft:#173a3a;
+    --shadow:0 24px 48px -28px rgba(0,0,0,0.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1a1f;
+  --surface:#112329;
+  --surface-2:#152b31;
+  --ink:#e9f2f0;
+  --ink-soft:#a4bcbf;
+  --line:#25454b;
+  --accent:#e3a159;
+  --accent-soft:#3a2c1c;
+  --teal:#59b3ae;
+  --teal-soft:#173a3a;
+  --shadow:0 24px 48px -28px rgba(0,0,0,0.6);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  line-height:1.55;
+}
+::selection{background:var(--accent-soft);color:var(--ink);}
+a{color:var(--teal);}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;text-wrap:balance;margin:0;}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 clamp(20px,5vw,48px);}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(10px);
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;}
+.brand{font-family:'Fraunces',serif;font-weight:680;font-size:1.05rem;letter-spacing:.01em;}
+.brand em{color:var(--accent);font-style:normal;}
+.navlinks{display:flex;gap:28px;font-size:.9rem;}
+.navlinks a{color:var(--ink-soft);text-decoration:none;}
+.navlinks a:hover{color:var(--ink);}
+
+/* ---------- hero ---------- */
+header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+#ripple{position:absolute;inset:0;width:100%;height:100%;opacity:.55;}
+.hero-inner{position:relative;padding:88px 0 76px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);background:var(--teal-soft);border:1px solid var(--line);
+  padding:6px 12px;border-radius:100px;margin-bottom:26px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:680;max-width:14ch;}
+.hero h1 .italic{font-style:italic;font-weight:500;color:var(--teal);}
+.hero p.lede{max-width:52ch;font-size:1.15rem;color:var(--ink-soft);margin-top:22px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 20px;border-radius:10px;font-size:.92rem;font-weight:500;
+  text-decoration:none;border:1px solid transparent;transition:transform .15s ease;
+}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.btn-primary{background:var(--ink);color:var(--bg);}
+:root[data-theme="dark"] .btn-primary{color:var(--bg);}
+.btn-primary:hover{transform:translateY(-1px);}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface);}
+.btn-ghost:hover{border-color:var(--teal);}
+
+/* ---------- sections ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
+.section-head h2{font-size:1.8rem;font-weight:560;}
+.section-num{font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);font-size:.85rem;}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;}
+.about-grid p{color:var(--ink-soft);max-width:60ch;}
+.about-grid p + p{margin-top:14px;}
+.facts{display:grid;gap:16px;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);}
+.fact{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;border-bottom:1px dashed var(--line);padding-bottom:12px;}
+.fact:last-child{border-bottom:none;padding-bottom:0;}
+.fact dt{color:var(--ink-soft);}
+.fact dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:.86rem;text-align:right;}
+
+/* stack */
+.stack-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.stack-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;}
+.stack-card h3{font-family:'IBM Plex Sans';font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;padding:5px 10px;border-radius:7px;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink);
+}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s ease, transform .15s ease;
+  cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;
+}
+.card:hover{border-color:var(--teal);transform:translateY(-3px);}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;}
+.card-shot{
+  aspect-ratio:16/10;overflow:hidden;background:var(--surface-2);
+  border-bottom:1px solid var(--line);position:relative;
+}
+.card-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .3s ease;}
+.card:hover .card-shot img{transform:scale(1.04);}
+.card-shot.no-shot{display:flex;align-items:center;justify-content:center;}
+.card-shot.no-shot .glyph{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.card-shot.no-shot .glyph svg{opacity:.55;}
+.card-shot .zoom-hint{
+  position:absolute;bottom:10px;right:10px;background:rgba(16,38,44,0.72);color:#fff;
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;padding:4px 9px;border-radius:100px;
+  opacity:0;transition:opacity .15s ease;
+}
+.card:hover .zoom-hint{opacity:1;}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex-grow:1;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+.card h3{font-size:1.15rem;font-weight:560;}
+.card p{color:var(--ink-soft);font-size:.94rem;margin:0;flex-grow:1;}
+.card-foot{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;}
+.card-foot .repo-link{text-decoration:none;font-weight:500;position:relative;z-index:2;}
+.card-foot .repo-link:hover{text-decoration:underline;}
+.lang-dot{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-family:'IBM Plex Mono',monospace;}
+.lang-dot::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);}
+
+/* lightbox */
+.lightbox{
+  position:fixed;inset:0;background:rgba(9,20,24,0.72);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;padding:24px;z-index:50;
+}
+.lightbox[hidden]{display:none;}
+.lightbox-panel{
+  background:var(--surface);border-radius:18px;max-width:920px;width:100%;max-height:88vh;
+  overflow:auto;box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.lightbox-img{width:100%;display:block;border-bottom:1px solid var(--line);}
+.lightbox-nogfx{
+  aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:var(--surface-2);
+  border-bottom:1px solid var(--line);
+}
+.lightbox-body{padding:24px 28px 28px;display:flex;flex-direction:column;gap:14px;}
+.lightbox-body h3{font-size:1.4rem;}
+.lightbox-body p{color:var(--ink-soft);margin:0;}
+.lightbox-meta{display:flex;flex-wrap:wrap;gap:8px;}
+.lightbox-actions{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:4px;flex-wrap:wrap;}
+.lightbox-close{
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  width:34px;height:34px;border-radius:50%;font-size:1rem;cursor:pointer;
+  position:sticky;top:14px;margin:14px 14px -48px auto;display:flex;align-items:center;justify-content:center;
+  z-index:2;
+}
+.lightbox-close:hover{border-color:var(--teal);}
+
+/* contact */
+.contact-box{
+  background:linear-gradient(135deg,var(--surface-2),var(--surface));
+  border:1px solid var(--line);border-radius:20px;padding:44px clamp(24px,5vw,56px);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.contact-box h2{font-size:clamp(1.6rem,3.5vw,2.2rem);max-width:14ch;}
+.contact-links{display:flex;gap:14px;flex-wrap:wrap;}
+
+footer{padding:28px 0;text-align:center;color:var(--ink-soft);font-size:.82rem;}
+
+@media (max-width:760px){
+  .about-grid{grid-template-columns:1fr;}
+  .navlinks{display:none;}
+}
+@media (prefers-reduced-motion: reduce){
+  * {animation:none !important; transition:none !important;}
+}
+</style>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">gökçe su <em>aksoy</em></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <canvas id="ripple"></canvas>
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span> Available for internships &amp; junior roles</span>
+    <h1>Building software the way <span class="italic">light moves on water</span> — quietly, then all at once.</h1>
+    <p class="lede">I'm Gökçe Su, a developer working across mobile apps, e-commerce, and AI-assisted tools. My name means "sky" and "water" in Turkish — this page borrows both.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">See the work →</a>
+      <a class="btn btn-ghost" href="https://github.com/gokcesuu" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:20px;">
+        <h2>About</h2>
+        <span class="section-num mono">01 / hello</span>
+      </div>
+      <p>I started publishing code in late 2022 and have been shipping small, real things since — a fitness app rebuilt with an AI layer, an e-commerce storefront, a campus utility app, and a landing page built for Doğuş.</p>
+      <p>I like projects where a plain interface hides something a little clever underneath: a recommendation, a calculation, a shortcut the user never has to think about. Most of what's below is still in motion — that's on purpose.</p>
+    </div>
+    <dl class="facts">
+      <div class="fact"><dt>Based</dt><dd>Türkiye</dd></div>
+      <div class="fact"><dt>Focus</dt><dd>mobile · web · applied AI</dd></div>
+      <div class="fact"><dt>Coding since</dt><dd>2022</dd></div>
+      <div class="fact"><dt>Public repos</dt><dd>6</dd></div>
+      <div class="fact"><dt>GitHub</dt><dd><a class="mono" href="https://github.com/gokcesuu" target="_blank" rel="noopener">@gokcesuu</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Stack</h2>
+      <span class="section-num mono">02 / tools</span>
+    </div>
+    <div class="stack-groups">
+      <div class="stack-card">
+        <h3>Languages</h3>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Applied AI</h3>
+        <div class="chips">
+          <span class="chip">Recommendation logic</span>
+          <span class="chip">Fitness data models</span>
+          <span class="chip">Prompt-driven features</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Product surfaces</h3>
+        <div class="chips">
+          <span class="chip">Mobile apps</span>
+          <span class="chip">E-commerce</span>
+          <span class="chip">Campus / student tools</span>
+          <span class="chip">Landing pages</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="section-num mono">03 / github.com/gokcesuu</span>
+    </div>
+    <div class="projects" id="projectGrid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" hidden>
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+    <button class="lightbox-close" id="lbClose" aria-label="Kapat">✕</button>
+    <div id="lbMedia"></div>
+    <div class="lightbox-body">
+      <h3 id="lbTitle"></h3>
+      <p id="lbDesc"></p>
+      <div class="lightbox-meta" id="lbMeta"></div>
+      <div class="lightbox-actions">
+        <span class="lang-dot mono" id="lbLang"></span>
+        <a class="btn btn-ghost" id="lbRepo" target="_blank" rel="noopener">Kaynak kod (GitHub) ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Have something worth building? Let's talk.</h2>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:claude12042003@gmail.com">Email me</a>
+        <a class="btn btn-ghost" href="https://github.com/gokcesuu" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Gökçe Su Aksoy — built with care, updated by hand.</div>
+</footer>
+
+<script>
+var PROJECTS = [
+  {
+    name: "fit-app",
+    tag: "Canlı arayüz",
+    lang: "React · Vite",
+    shot: "fitapp.png",
+    repo: "https://github.com/gokcesuu/fit-app",
+    desc: "Malzemelerinize göre kişiselleştirilmiş beslenme ve egzersiz planı öneren bir arayüz: “Akıllı Beslenme ve Fitness Planlayıcınız”. Öneri mantığını, egzersiz verisini zenginleştiren bir Python motoru besliyor. Ekran görüntüsü, projeyi bu sayfa için yeniden çalıştırıp alındı.",
+    meta: ["AI destekli öneri", "React + Vite", "Kişiselleştirilmiş plan"]
+  },
+  {
+    name: "CampusBIGM",
+    tag: "Canlı arayüz",
+    lang: "React · Node · Firebase",
+    shot: "campusbigm.png",
+    repo: "https://github.com/gokcesuu/CampusBIGM",
+    desc: "Doğuş Üniversitesi öğrencilerinin kampüs etkinliklerini görüntüleyip beğenebildiği, yeni etkinlik oluşturabildiği bir platform. Giriş ekranı, React ön yüzü yerelde ayağa kaldırılarak yakalandı.",
+    meta: ["Etkinlik yönetimi", "Firebase Firestore", "Express API"]
+  },
+  {
+    name: "StudentHub",
+    tag: "Canlı arayüz",
+    lang: "React · Node · MongoDB",
+    shot: "studenthub.png",
+    repo: "https://github.com/gokcesuu/eticaretproje",
+    desc: "Öğrencilerin hizmet satıp alabildiği, proje ekibi kurabildiği ve ihtiyaç ilanı verebildiği bir öğrenci ekonomisi platformu (repo adı: eticaretproje). Beceri eşleştirmesi için ayrı bir Python AI servisi içeriyor.",
+    meta: ["Beceri pazarı", "AI eşleştirme servisi", "Gerçek zamanlı mesajlaşma"]
+  },
+  {
+    name: "dogus-l-p",
+    tag: "Üniversite projesi",
+    lang: "Python · PyQt5 · ArduPilot",
+    shot: "dogus-gcs.png",
+    repo: "https://github.com/gokcesuu/dogus-l-p",
+    desc: "Doğuş Üniversitesi'nde yürütülen bir lisans araştırma projesi: Türkçe arayüzlü bir yer kontrol istasyonu (GCS) ve STM32H743 tabanlı, ArduPilot/MAVLink uyumlu bir otonom uçuş sistemi. Görüntü, repodaki arayüz tasarım dosyasından alındı — canlı uçuş, PyQt5 masaüstü uygulamasında çalışıyor.",
+    meta: ["PyQt5 arayüz", "Beş katmanlı failsafe", "SITL simülasyonu"]
+  },
+  {
+    name: "TechWorld",
+    tag: "Ders projesi",
+    lang: "ASP.NET Core (.NET 8)",
+    shot: "techworld.png",
+    repo: "https://github.com/gokcesuu/TechWorld",
+    desc: "Web programlama dersi kapsamında ASP.NET Core MVC ile geliştirilmiş bir teknoloji mağazası: kategoriler, ürün listeleme ve sepete ekleme akışı, SQL Server üzerinde çalışıyor. Ekran görüntüsü, projeyi bu sayfa için yeniden ayağa kaldırıp alındı.",
+    meta: ["ASP.NET MVC", "SQL Server", "Ürün kataloğu"]
+  }
+];
+
+function renderProjects(){
+  var grid = document.getElementById('projectGrid');
+  grid.innerHTML = PROJECTS.map(function(p, i){
+    var shotHtml = p.shot
+      ? '<div class="card-shot"><img src="'+p.shot+'" alt="'+p.name+' arayüz görüntüsü" loading="lazy"><span class="zoom-hint">Büyüt ↗</span></div>'
+      : '<div class="card-shot no-shot"><span class="glyph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>Detayları gör</span></div>';
+    return '<button class="card" type="button" data-idx="'+i+'">'
+      + shotHtml
+      + '<div class="card-body">'
+      + '<div class="card-top"><h3>'+p.name+'</h3><span class="badge">'+p.tag+'</span></div>'
+      + '<p>'+p.desc+'</p>'
+      + '<div class="card-foot"><span class="lang-dot mono">'+p.lang+'</span><a class="repo-link" href="'+p.repo+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">Repo ↗</a></div>'
+      + '</div></button>';
+  }).join('');
+
+  grid.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('click', function(){
+      openLightbox(PROJECTS[+card.dataset.idx]);
+    });
+  });
+}
+
+function openLightbox(p){
+  var lb = document.getElementById('lightbox');
+  document.getElementById('lbTitle').textContent = p.name;
+  document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lbLang').textContent = p.lang;
+  document.getElementById('lbRepo').href = p.repo;
+  document.getElementById('lbMeta').innerHTML = p.meta.map(function(m){return '<span class="chip">'+m+'</span>';}).join('');
+  document.getElementById('lbMedia').innerHTML = p.shot
+    ? '<img class="lightbox-img" src="'+p.shot+'" alt="'+p.name+' arayüz görüntüsü">'
+    : '<div class="lightbox-nogfx"><span class="glyph mono" style="color:var(--ink-soft);font-size:.8rem;">Bu proje için canlı ekran görüntüsü yok — kapsam yukarıda özetlendi</span></div>';
+  lb.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').hidden = true;
+  document.body.style.overflow = '';
+}
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target.id === 'lightbox') closeLightbox();
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeLightbox();
+});
+renderProjects();
+</script>
+
+<script>
+(function(){
+  var canvas = document.getElementById('ripple');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = canvas.parentElement;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    var r = hero.getBoundingClientRect();
+    canvas.width = r.width * dpr;
+    canvas.height = r.height * dpr;
+    canvas.style.width = r.width + 'px';
+    canvas.style.height = r.height + 'px';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function isDark(){
+    var t = document.documentElement.getAttribute('data-theme');
+    if(t === 'dark') return true;
+    if(t === 'light') return false;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var lines = [];
+  var count = 6;
+  for(var i=0;i<count;i++){
+    lines.push({ base: 0.15 + i*(0.7/count), amp: 8 + i*3, speed: 0.15 + i*0.05, phase: i*1.3 });
+  }
+
+  var t0 = performance.now();
+  function draw(now){
+    var w = canvas.width, h = canvas.height;
+    ctx.clearRect(0,0,w,h);
+    var dark = isDark();
+    var col = dark ? [227,161,89] : [201,122,52];
+    var elapsed = (now - t0) / 1000;
+
+    lines.forEach(function(ln, idx){
+      var y = h * ln.base;
+      ctx.beginPath();
+      for(var x=0; x<=w; x+=6*dpr){
+        var yy = y + Math.sin((x/w)*Math.PI*2 + elapsed*ln.speed + ln.phase) * ln.amp * dpr;
+        if(x===0) ctx.moveTo(x,yy); else ctx.lineTo(x,yy);
+      }
+      var alpha = 0.05 + (idx/count)*0.09;
+      ctx.strokeStyle = 'rgba('+col[0]+','+col[1]+','+col[2]+','+alpha+')';
+      ctx.lineWidth = 1.4*dpr;
+      ctx.stroke();
+    });
+
+    if(!reduced) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
